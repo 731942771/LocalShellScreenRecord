@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">原生录屏</string>
+
+    <string-array name="size">
+        <item>driver screen</item>
+        <item>128x128</item>
+        <item>128x160</item>
+        <item>240x320</item>
+        <item>320x240</item>
+        <item>240x400</item>
+        <item>320x480</item>
+        <item>360x640</item>
+        <item>480x800</item>
+        <item>480x854</item>
+        <item>960x540</item>
+        <item>960x640</item>
+        <item>1136x640</item>
+        <item>1280x720</item>
+        <item>1280x768</item>
+        <item>1280x800</item>
+        <item>1024x600</item>
+        <item>1024x768</item>
+        <item>1920x1080</item>
+        <item>1920x1280</item>
+        <item>1920x1200</item>
+        <item>2048x1539 </item>
+        <item>2560×1440</item>
+    </string-array>
+    <string-array name="bitrate">
+        <item>100000</item>
+        <item>500000</item>
+        <item>1000000</item>
+        <item>4000000</item>
+        <item>5000000</item>
+        <item>10000000</item>
+        <item>50000000</item>
+        <item>100000000</item>
+    </string-array>
+
+    <string name="title_activity_about">关于本应用</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

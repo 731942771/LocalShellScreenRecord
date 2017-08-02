@@ -1,0 +1,48 @@
+cuiweiyou.com
+--------------------------------
+
+系统版本，最低 Android 4.4
+
+1.PC端执行命令
+	示例：
+	adb shell screenrecord /sdcard/abc.mp4
+	这行命令表示录制屏幕并将视频保存为SD卡中的abc.mp4文件。
+	
+	screenrecord除了必须直接指定目标视频文件，还有以下常用参数：
+		--size
+		示例：adb shell screenrecord --size 1280x720 /sdcard/abc.mp4
+		设置视频的尺寸。默认是设备的主屏幕分辨率大小，如果不支持，默认使用“1280x720”。此参数可忽略。
+		--bit-rate
+		示例：adb shell screenrecord --bit-rate 100000 /sdcard/abc.mp4
+		设置视频的比特率。参数范围为[100000,100000000]，默认是4Mbps，即4000000。此参数可忽略。
+		--time-limit
+		示例：adb shell screenrecord --time-limit 10 /sdcard/abc.mp4
+		设置视频最长录制时间，单位s。默认最长为180秒。此参数可忽略。
+		如果不指定此参数，screenrecord进程会在录制180秒后自动终止；指定了即录制指定秒后终止。如果想在录制结束前终止，Ctrl+c 。
+		--verbose
+		示例：adb shell screenrecord --rotate 30 --verbose /sdcard/abc.mp4
+		在控制台打印录制日志。此参数可忽略。
+		--help
+		显示帮助信息。同其他shell的帮助命令，此参数具有独立性，会使录制行为失效。
+	
+	如果需要记录在屏幕上点击的位置信息，建议在”开发者选项”里勾选”显示触摸位置”。
+	
+	下面是--verbose打印的日志：
+		C:\Windows\System32>adb shell screenrecord --time-limit 10 --verbose /sdcard/a.mp4
+			Main display is 1080x1920 @60.00fps (orientation=0)
+			Configuring recorder for 1080x1920 video/avc at 4.00Mbps
+			Content area is 1080x1920 at offset x=0 y=0
+			Time limit reached
+			Encoder stopping; recorded 399 frames in 10 seconds
+			Stopping encoder and muxer
+			Executing: /system/bin/am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d file:///sdcard/a.mp4
+			Broadcasting: Intent { act=android.intent.action.MEDIA_SCANNER_SCAN_FILE dat=file:///sdcard/a.mp4 }
+			Broadcast completed: result=0
+		C:\Windows\System32>
+
+2.在Android系统中执行命令
+	使用Root Explorer for Android 查看 /system/bin/ 目录中有 screenrecord 文件
+	须要root，并申请root权限，以执行shell。
+	此时可省略“adb shell”，直接指向“screenrecord”。要执行shell命令，使用Process类。
+	
+http://stackoverflow.com/questions/23800030/how-to-record-android-screen-video-programmatically-in-kitkat-4-4/25300536#25300536
