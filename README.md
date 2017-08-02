@@ -1,9 +1,11 @@
 2016.1.3发布于oschina<br/>
+
 关于安卓手机录制屏幕视频的段子已经很多了，本文仅属懒鱼充数。
 一直以来android都没有为此提供官方 api，直到5.0里有了 MediaProjection 好像可以实现，但也只见介绍没见实例。而4.4里提供了一个 screenrecord 可以录制屏幕，即使手机未 root，当开启 usb 调试后，仍然可以通过 adb shell 在PC上实现录制。
 问题是，如何在手机应用中实现录制？否则，这个功能的累赘太大了。<br/>
  ![github](screenrecord.gif "Android通过shell实现原生录制屏幕视频")
 <br/>
+
 先来看下Android 4.4提供的screenrecord命令。
 1.PC端执行adb shell screenrecord命令
 ===================================
